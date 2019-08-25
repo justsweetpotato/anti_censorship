@@ -60,8 +60,8 @@
     <form style="" action="" name="form" method="post">
         {% csrf_token %}
         <span style="font-size: 16px">文本:</span><br>
-        <textarea style="width: 100%; height: 96px; font-size: 16px" maxlength="80" name="msg" id="msg"
-                  placeholder="请输入文本: (最大 80 字符, 支持中文, 英文, 数字, 常用英文标点)">{{ msg }}</textarea><br>
+        <textarea style="width: 100%; height: 96px; font-size: 16px" maxlength="100" name="msg" id="msg"
+                  placeholder="请输入文本: (最大 100 字符, 支持中文, 英文, 数字, 常用英文标点)">{{ msg }}</textarea><br>
         <br>
         <div style="display: inline-block; margin-right: 3%">
             <span style="font-size: 16px;">行数:</span><br>
