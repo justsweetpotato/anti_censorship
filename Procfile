@@ -1,1 +1,1 @@
-web: gunicorn search_book.wsgi --log-file -
+web: gunicorn anti_censorship.wsgi --log-file -
