@@ -1,17 +1,28 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import re
+import math
 
 
-def printN(cur, row, msg):
-    col = len(msg) // row
-    s = ''
-    for j in range(0, col + 1):  # 列
-        try:
-            s += msg[cur + row * j] + ' '  # [当前行 + 总行数*list间隔], 13*0, 13*1, 13*2
-        except:
-            pass
-    return s
+def print_in_line(row, msg):
+    '''
+    string 语句，row行数，direction 方向。原理：字数/行数的余数。
+    字数/行数， 余数。决定了文字打印出来的坐标。
+    '''
+    if not msg:
+        return None
+    msg = sub(msg)
+    len_col = math.ceil(len(msg) / row)  # 向上取整
+
+    line = ''
+    for i in range(row):
+        for j in range(len_col):
+            try:
+                line += msg[j * row + i] + ' '  # 可以通过直接切片的方式，进行取值。错误则不打印连接符。
+            except:
+                pass
+        line += '<br>'
+    return line
 
 
 def sub(msg):
@@ -26,6 +37,8 @@ def sub(msg):
     msg = re.sub('8', '８', msg)
     msg = re.sub('9', '９', msg)
     msg = re.sub(' ', '㍐', msg)  # TODO
+    msg = re.sub('\\n', '。', msg)
+    msg = re.sub('\\r', '', msg)
     msg = re.sub(',', '，', msg)
     msg = re.sub('[,;]', '，', msg)  # TODO
     msg = re.sub('\.', '・', msg)
@@ -97,14 +110,3 @@ def sub(msg):
     msg = re.sub('Z', 'Ｚ', msg)
 
     return msg
-
-
-def anti_censor(row, msg):
-    if not msg:
-        return None
-
-    msg = sub(msg)
-    word_list = ''
-    for i in range(0, row):  # 行
-        word_list += printN(i, row, msg) + '<br>'
-    return word_list

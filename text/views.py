@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .data import anti_censor
+from .data import print_in_line
 
 
 def index(request):
@@ -21,7 +21,7 @@ def index(request):
             row = 100
         msg = request.POST.get('msg', '')
 
-        content = anti_censor(row, msg)
+        content = print_in_line(row, msg)
         content = {'content': content, 'row': row, 'msg':msg}
 
         return render(request, 'index.html', content)
