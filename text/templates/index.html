@@ -12,11 +12,11 @@
 </head>
 <body>
 <div style="width: 80%; margin-top: 1%; margin-left: 5%">
-    <h2 style="display: inline-block">文本竖排</h2>&nbsp;<small style="color: gray">v0.0.1</small>
-    <form action="" method="post">
+    <h2 style="display: inline-block">文本竖排</h2>&nbsp;<small style="color: gray">v0.0.2</small>
+    <form action="" name="form" method="post">
         {% csrf_token %}
         <span style="font-size: 20px">文本:</span><br>
-        <textarea style="width: 100%; height: 120px; font-size: 20px" name="msg" id="msg"
+        <textarea style="width: 100%; height: 120px; font-size: 20px" maxlength="3000" name="msg" id="msg"
                   placeholder="请输入文本: (支持中文, 英文, 数字, 常用英文标点)">{{ msg }}</textarea><br>
         <br>
         <span style="font-size: 20px">行数:</span><br>
