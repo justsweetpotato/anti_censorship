@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本竖排</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script>
+        function ClearTextArea() {
+            document.getElementById("msg").value = "";
+        }
+    </script>
+</head>
+<body>
+<div style="width: 80%; margin-top: 1%; margin-left: 5%">
+    <h2 style="display: inline-block">文本竖排</h2>&nbsp;<small style="color: gray">v0.0.1</small>
+    <form action="" method="post">
+        {% csrf_token %}
+        <span style="font-size: 20px">文本:</span><br>
+        <textarea style="width: 100%; height: 120px; font-size: 20px" name="msg" id="msg"
+                  placeholder="请输入文本: (支持中文, 英文, 数字, 常用英文标点)">{{ msg }}</textarea><br>
+        <br>
+        <span style="font-size: 20px">行数:</span><br>
+        <input style="width: 50px;font-size: 20px" type="text" name="row" value="{{ row }}"><br>
+        <br>
+        <input style="width: 80px; height: 40px;  border-radius: 15px; font-size: 20px; color: white; background: cornflowerblue"
+               type="submit" name="" id="" value="提交">&nbsp;&nbsp;&nbsp;
+        <button style="width: 80px; height: 40px; border-radius: 15px; font-size: 20px; color: white; background:orange"
+                onclick="ClearTextArea()">重置
+        </button>
+    </form>
+    <br>
+    <hr>
+    <div id="myText" style="font-size: 20px">
+        {% if content %}
+            {{ content | safe }}
+        {% else %}
+            <span style="color: gray()">
+                使用方法: 规避敏感词审查, 说出你想说的话<br>
+                还存在一些小问题，尽量不要输入 "空格" 或 "奇怪的符号", 可能会转换失败<br>
+                在墙内留言时注意保护好个人隐私, 不要泄露身份信息<br>
+            </span>
+        {% endif %}
+    </div>
+</div>
+<br>
+<br>
+</body>
+</html>
