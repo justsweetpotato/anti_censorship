@@ -77,6 +77,8 @@ def sub(msg):
     msg = re.sub('[\)）]', '︶', msg)
     msg = re.sub('[\[「]', '﹁', msg)
     msg = re.sub('[\]」]', '﹂', msg)
+    msg = re.sub('{', '︷', msg)
+    msg = re.sub('}', '︸', msg)
     msg = re.sub('<', '︿', msg)
     msg = re.sub('>', '﹀', msg)
     msg = re.sub('a', 'ａ', msg)
