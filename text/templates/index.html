@@ -12,15 +12,44 @@
 </head>
 <body>
 <div style="width: 80%; margin-top: 1%; margin-left: 5%">
-    <h2 style="display: inline-block">文本竖排</h2>&nbsp;<small style="color: gray">v0.0.3</small>
-    <form action="" name="form" method="post">
+    <h2 style="display: inline-block">文本竖排</h2>&nbsp;<small style="color: gray">v0.0.4</small>
+    <form style="" action="" name="form" method="post">
         {% csrf_token %}
         <span style="font-size: 20px">文本:</span><br>
         <textarea style="width: 100%; height: 120px; font-size: 20px" maxlength="3000" name="msg" id="msg"
                   placeholder="请输入文本: (支持中文, 英文, 数字, 常用英文标点)">{{ msg }}</textarea><br>
         <br>
-        <span style="font-size: 20px">行数:</span><br>
-        <input style="width: 50px;font-size: 20px" type="text" name="row" value="{{ row }}"><br>
+        <div style="display: inline-block; margin-right: 3%">
+            <span style="font-size: 20px;">行数:</span><br>
+            <input style="width: 50px;font-size: 20px" type="text" name="row" value="{{ row }}"><br>
+        </div>
+
+        <div style="display: inline-block; margin-right: 3%">
+            <span style="font-size: 20px;">分隔符:</span><br>
+            <span style="font-size: 20px;">
+            {% if style == ' ' %}
+                <input type="radio" name="style" value=" " checked>空格
+                <input type="radio" name="style" value="|">竖线
+            {% else %}
+                <input type="radio" name="style" value=" ">空格
+                <input type="radio" name="style" value="|" checked>竖线
+            {% endif %}
+            </span>
+        </div>
+
+        <div style="display: inline-block">
+            <span style="font-size: 20px">样式:</span><br>
+            <span style="font-size: 20px">
+                {% if reverse == '0' %}
+                    <input type="radio" name="reverse" value="0" checked>从左往右
+                    <input type="radio" name="reverse" value="1">从右往左
+                {% else %}
+                    <input type="radio" name="reverse" value="0">从左往右
+                    <input type="radio" name="reverse" value="1" checked>从右往左
+                {% endif %}
+            </span>
+        </div>
+        <br>
         <br>
         <input style="width: 80px; height: 40px;  border-radius: 15px; font-size: 20px; color: white; background: cornflowerblue"
                type="submit" name="" id="" value="提交">&nbsp;&nbsp;&nbsp;
@@ -30,11 +59,13 @@
     </form>
     <br>
     <hr>
-    <div id="myText" style="font-size: 20px">
+    <div>
         {% if content %}
-            {{ content | safe }}
+            <span style="font-size: 20px">
+                {{ content | safe }}
+            </span>
         {% else %}
-            <span style="color: gray()">
+            <span style="font-size: 20px;color: gray();">
                 使用方法: 规避敏感词审查, 说出你想说的话<br>
                 还存在一些小问题，尽量不要输入 "空格" 或 "奇怪的符号", 可能会转换失败<br>
                 在墙内留言时注意保护好个人隐私, 不要泄露身份信息<br>

@@ -4,7 +4,7 @@ import re
 import math
 
 
-def print_in_line(row, msg):
+def print_in_line(row, msg, style):
     '''
     string 语句，row行数，direction 方向。原理：字数/行数的余数。
     字数/行数， 余数。决定了文字打印出来的坐标。
@@ -18,11 +18,34 @@ def print_in_line(row, msg):
     for i in range(row):
         for j in range(len_col):
             try:
-                line += msg[j * row + i] + ' '  # 可以通过直接切片的方式，进行取值。错误则不打印连接符。
+                line += msg[j * row + i] + style  # 可以通过直接切片的方式，进行取值。错误则不打印连接符。
             except:
                 pass
         line += '<br>'
     return line
+
+
+def print_in_line_reverse(row, msg, style):
+    '''
+    string 语句，row行数，direction 方向。原理：字数/行数的余数。
+    字数/行数， 余数。决定了文字打印出来的坐标。
+    '''
+    if not msg:
+        return None
+    msg = sub(msg)
+    len_col = math.ceil(len(msg) / row)  # 向上取整
+
+    big_line = ''
+    for i in range(row):
+        line = ''
+        for j in range(len_col):
+            try:
+                line += msg[j * row + i] + style  # 可以通过直接切片的方式，进行取值。错误则不打印连接符。
+            except:
+                line += '㍐' + style
+        line = line[::-1]
+        big_line += line + '<br>'
+    return big_line
 
 
 def sub(msg):

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .data import print_in_line
+from .data import print_in_line, print_in_line_reverse
 
 
 def index(request):
@@ -20,8 +20,19 @@ def index(request):
         if row > 100:
             row = 100
         msg = request.POST.get('msg', '')
+        style = request.POST.get('style', ' ')
+        reverse = request.POST.get('reverse', '0')
 
-        content = print_in_line(row, msg)
-        content = {'content': content, 'row': row, 'msg':msg}
+        if reverse == '0':
+            content = print_in_line(row, msg, style)
+        else:
+            content = print_in_line_reverse(row, msg, style)
 
+        content = {
+            'content': content,
+            'row': row,
+            'msg': msg,
+            'style': style,
+            'reverse': reverse
+        }
         return render(request, 'index.html', content)
