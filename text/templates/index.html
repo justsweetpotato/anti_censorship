@@ -15,6 +15,10 @@
             .span_warn {
                 display: none;
             }
+
+            .msg_mobile {
+                display: none;
+            }
         }
 
         @media screen and (max-device-width: 767px) {
@@ -25,6 +29,10 @@
             .span_warn {
                 display: none;
             }
+
+            .msg_pc {
+                display: none;
+            }
         }
 
         @media screen and (max-device-width: 374px) {
@@ -33,6 +41,10 @@
             }
 
             .span_warn {
+                display: none;
+            }
+
+            .msg_pc {
                 display: none;
             }
         }
@@ -46,11 +58,16 @@
                 display: block;
                 font-size: 10px;
             }
+
+            .msg_pc {
+                display: none;
+            }
         }
     </style>
     <script>
         function ClearTextArea() {
-            document.getElementById("msg").value = "";
+            document.getElementById("msg_pc").value = "";
+            document.getElementById("msg_mobile").value = "";
         }
     </script>
 </head>
@@ -61,8 +78,32 @@
     <form style="" action="" name="form" method="post">
         {% csrf_token %}
         <span style="font-size: 16px">文本:</span><br>
-        <textarea style="width: 100%; height: 96px; font-size: 16px" maxlength="100" name="msg" id="msg"
-                  placeholder="请输入文本: (最大 100 字符, 支持中文, 英文, 数字, 常用英文标点)">{{ msg }}</textarea><br>
+        {% if type == 'pc' %}
+            <textarea class="msg_pc" style="width: 100%; height: 96px; font-size: 16px" maxlength="200" name="msg_pc"
+                      id="msg_pc"
+                      placeholder="请输入文本: (最大 200 字符, 支持中文, 英文, 数字, 常用标点)">{{ msg }}</textarea>
+            <textarea class="msg_mobile" style="width: 100%; height: 96px; font-size: 16px" maxlength="100"
+                      name="msg_mobile"
+                      id="msg_mobile"
+                      placeholder="请输入文本: (最大 100 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
+        {% elif type == 'mobile' %}
+            <textarea class="msg_pc" style="width: 100%; height: 96px; font-size: 16px" maxlength="200" name="msg_pc"
+                      id="msg_pc"
+                      placeholder="请输入文本: (最大 200 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
+            <textarea class="msg_mobile" style="width: 100%; height: 96px; font-size: 16px" maxlength="100"
+                      name="msg_mobile"
+                      id="msg_mobile"
+                      placeholder="请输入文本: (最大 100 字符, 支持中文, 英文, 数字, 常用标点)">{{ msg }}</textarea>
+        {% else %}
+            <textarea class="msg_pc" style="width: 100%; height: 96px; font-size: 16px" maxlength="200" name="msg_pc"
+                      id="msg_pc"
+                      placeholder="请输入文本: (最大 200 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
+            <textarea class="msg_mobile" style="width: 100%; height: 96px; font-size: 16px" maxlength="100"
+                      name="msg_mobile"
+                      id="msg_mobile"
+                      placeholder="请输入文本: (最大 100 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
+        {% endif %}
+        <br>
         <br>
         <div style="display: inline-block; margin-right: 3%">
             <span style="font-size: 16px;">行数:</span><br>

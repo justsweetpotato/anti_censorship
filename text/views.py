@@ -21,7 +21,20 @@ def index(request):
             row = 5
         if row > 10:
             row = 10
-        msg = request.POST.get('msg', '')
+
+        msg_pc = request.POST.get('msg_pc', '')
+        msg_mobile = request.POST.get('msg_mobile', '')
+
+        if msg_pc:
+            msg = msg_pc
+            type = 'pc'
+        elif msg_mobile:
+            type = 'mobile'
+            msg = msg_mobile
+        else:
+            type = ''
+            msg = ''
+
         style = request.POST.get('style', ' ')
         reverse = request.POST.get('reverse', '0')
 
@@ -35,6 +48,7 @@ def index(request):
             'row': row,
             'msg': msg,
             'style': style,
-            'reverse': reverse
+            'reverse': reverse,
+            'type': type
         }
         return render(request, 'index.html', content)
