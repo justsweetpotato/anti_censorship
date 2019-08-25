@@ -8,6 +8,8 @@ def index(request):
 
         content = {}
         content['row'] = row
+        content['style'] = ' '
+        content['reverse'] = '0'
 
         return render(request, 'index.html', content)
 
@@ -17,8 +19,8 @@ def index(request):
             row = int(row)
         except:
             row = 5
-        if row > 100:
-            row = 100
+        if row > 10:
+            row = 10
         msg = request.POST.get('msg', '')
         style = request.POST.get('style', ' ')
         reverse = request.POST.get('reverse', '0')
