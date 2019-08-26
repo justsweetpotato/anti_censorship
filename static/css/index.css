@@ -190,48 +190,48 @@
     }
 
     .div_sty {
-        width: 45%;
+        width: 50%;
         display: inline-block;
         margin-bottom: 1%;
     }
 
     .div_lang {
-        width: 45%;
+        width: 50%;
         display: inline-block;
         margin-bottom: 2%;
     }
 
     .span_row {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .input_row {
-        width: 37.5px;
-        font-size: 12px;
+        width: 40px;
+        font-size: 14px;
     }
 
     .span_cut {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .span_cut_set {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .span_sty {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .span_sty_set {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .span_lang {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .span_lang_set {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .input_sub {
