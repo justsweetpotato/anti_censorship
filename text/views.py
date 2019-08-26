@@ -10,7 +10,7 @@ def index(request):
         content['row'] = row
         content['style'] = ' '
         content['reverse'] = '0'
-        content['lang'] = 'S'
+        content['lang'] = ''
 
         return render(request, 'index.html', content)
 
@@ -38,7 +38,7 @@ def index(request):
 
         style = request.POST.get('style', ' ')
         reverse = request.POST.get('reverse', '0')
-        lang = request.POST.get('lang', 'S')
+        lang = request.POST.get('lang', '')
 
         if reverse == '0':
             content = print_in_line(row, msg, style, lang)

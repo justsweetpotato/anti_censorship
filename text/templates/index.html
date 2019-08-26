@@ -14,7 +14,7 @@
 <div class=div_all>
     <a class="a_title" href="/"><h2 class="h2_title">文本竖排</h2></a>
     &nbsp;<small class="small_title"><span class="s1">v</span><span class="s2">0</span><span class="s3">.</span><span
-        class="s4">0</span><span class="s5">.</span><span class="s6">8</span></small>
+        class="s4">0</span><span class="s5">.</span><span class="s6">9</span></small>
     <form action="" name="form" method="post">
         {% csrf_token %}
         <span class="span_text">文本:</span><br>
@@ -54,11 +54,17 @@
                 <span class="span_lang">简繁转换:</span><br>
                 <span class="span_lang_set">
                 {% if lang == 'S' %}
+                    <input type="radio" name="lang" value="">无
                     <input type="radio" name="lang" value="S" checked>简
                     <input type="radio" name="lang" value="T">繁
-                {% else %}
+                {% elif lang == 'T' %}
+                    <input type="radio" name="lang" value="">无
                     <input type="radio" name="lang" value="S">简
                     <input type="radio" name="lang" value="T" checked>繁
+                {% else %}
+                    <input type="radio" name="lang" value="" checked>无
+                    <input type="radio" name="lang" value="S">简
+                    <input type="radio" name="lang" value="T">繁
                 {% endif %}
                 </span>
             </div>
