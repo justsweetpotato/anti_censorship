@@ -178,13 +178,13 @@
     }
 
     .div_cut {
-        width: 40%;
+        width: 100%;
         display: inline-block;
         margin-bottom: 1%;
     }
 
     .div_sty {
-        width: 50%;
+        width: 100%;
         display: inline-block;
         margin-bottom: 1%;
     }

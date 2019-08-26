@@ -14,30 +14,30 @@
 <div class=div_all>
     <a class="a_title" href="/"><h2 class="h2_title">文本竖排</h2></a>
     &nbsp;<small class="small_title"><span class="s1">v</span><span class="s2">0</span><span class="s3">.</span><span
-        class="s4">0</span><span class="s5">.</span><span class="s6">9</span></small>
+        class="s4">1</span><span class="s5">.</span><span class="s6">0</span></small>
     <form action="" name="form" method="post">
         {% csrf_token %}
         <span class="span_text">文本:</span><br>
         {% if type == 'pc' %}
-            <textarea class="msg_pc" maxlength="200" name="msg_pc"
+            <textarea class="msg_pc" maxlength="500" name="msg_pc"
                       id="msg_pc"
-                      placeholder="请输入文本: (最大 200 字符, 支持中文, 英文, 数字, 常用标点)">{{ msg }}</textarea>
+                      placeholder="请输入文本: (恭喜你发现彩蛋！力量值提升！最大 500 字符)">{{ msg }}</textarea>
             <textarea class="msg_mobile" maxlength="100"
                       name="msg_mobile"
                       id="msg_mobile"
                       placeholder="请输入文本: (最大 100 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
         {% elif type == 'mobile' %}
-            <textarea class="msg_pc" maxlength="200" name="msg_pc"
+            <textarea class="msg_pc" maxlength="250" name="msg_pc"
                       id="msg_pc"
-                      placeholder="请输入文本: (最大 200 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
+                      placeholder="请输入文本: (最大 250 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
             <textarea class="msg_mobile" maxlength="100"
                       name="msg_mobile"
                       id="msg_mobile"
                       placeholder="请输入文本: (最大 100 字符, 支持中文, 英文, 数字, 常用标点)">{{ msg }}</textarea>
         {% else %}
-            <textarea class="msg_pc" maxlength="200" name="msg_pc"
+            <textarea class="msg_pc" maxlength="250" name="msg_pc"
                       id="msg_pc"
-                      placeholder="请输入文本: (最大 200 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
+                      placeholder="请输入文本: (最大 250 字符, 支持中文, 英文, 数字, 常用标点)"></textarea>
             <textarea class="msg_mobile" maxlength="100"
                       name="msg_mobile"
                       id="msg_mobile"
@@ -75,11 +75,17 @@
                 <span class="span_cut">分隔符:</span><br>
                 <span class="span_cut_set">
             {% if style == ' ' %}
+                <input type="radio" name="style" value="">无
                 <input type="radio" name="style" value=" " checked>空格
                 <input type="radio" name="style" value="|">竖线
-            {% else %}
+            {% elif style == '|' %}
+                <input type="radio" name="style" value="">无
                 <input type="radio" name="style" value=" ">空格
                 <input type="radio" name="style" value="|" checked>竖线
+            {% else %}
+                <input type="radio" name="style" value="" checked>无
+                <input type="radio" name="style" value=" ">空格
+                <input type="radio" name="style" value="|">竖线
             {% endif %}
                 </span>
             </div>
@@ -87,11 +93,11 @@
                 <span class="span_sty">样式:</span><br>
                 <span class="span_sty_set">
                 {% if reverse == '0' %}
-                    <input type="radio" name="reverse" value="0" checked>左往右
-                    <input type="radio" name="reverse" value="1">右往左
+                    <input type="radio" name="reverse" value="0" checked>从左往右
+                    <input type="radio" name="reverse" value="1">从右往左
                 {% else %}
-                    <input type="radio" name="reverse" value="0">左往右
-                    <input type="radio" name="reverse" value="1" checked>右往左
+                    <input type="radio" name="reverse" value="0">从左往右
+                    <input type="radio" name="reverse" value="1" checked>从右往左
                 {% endif %}
                 </span>
             </div>
