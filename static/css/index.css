@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-.div_all {
-    width: 80%;
-    margin-top: 1%;
-    margin-left: 5%
-}
-
 .a_title {
     color: black;
 }
@@ -44,6 +38,12 @@
 
 /* 屏幕大于 767 加载, 针对电脑, iPad */
 @media screen and (min-device-width: 767px) {
+    .div_all {
+        width: 80%;
+        margin-top: 1%;
+        margin-left: 5%
+    }
+
     .span_msg {
         font-size: 16px
     }
@@ -149,6 +149,12 @@
 
 /* 屏幕小于 767 加载, 针对手机, 平板 */
 @media screen and (max-device-width: 767px) {
+    .div_all {
+        width: 95%;
+        margin-top: 1%;
+        /*margin-left: 5%;*/
+    }
+
     .span_msg {
         font-size: 10px;
     }
@@ -172,60 +178,60 @@
     }
 
     .div_row {
-        width: 40%;
+        width: 45%;
         display: inline-block;
         margin-bottom: 2%;
     }
 
     .div_cut {
-        width: 100%;
+        width: 45%;
         display: inline-block;
         margin-bottom: 1%;
     }
 
     .div_sty {
-        width: 100%;
+        width: 45%;
         display: inline-block;
         margin-bottom: 1%;
     }
 
     .div_lang {
-        width: 50%;
+        width: 45%;
         display: inline-block;
         margin-bottom: 2%;
     }
 
     .span_row {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .input_row {
-        width: 40px;
-        font-size: 14px;
+        width: 37.5px;
+        font-size: 12px;
     }
 
     .span_cut {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .span_cut_set {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .span_sty {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .span_sty_set {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .span_lang {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .span_lang_set {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .input_sub {

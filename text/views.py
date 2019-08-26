@@ -20,6 +20,8 @@ def index(request):
             row = int(row)
         except:
             row = 5
+        if row < 1:
+            row = 1
         if row > 10:
             row = 10
 
