@@ -2,15 +2,21 @@
 # -*- coding: utf-8 -*-
 import re
 import math
+from hanziconv import HanziConv
 
 
-def print_in_line(row, msg, style):
+def print_in_line(row, msg, style, lang):
     '''
     string 语句，row行数，direction 方向。原理：字数/行数的余数。
     字数/行数， 余数。决定了文字打印出来的坐标。
     '''
     if not msg:
         return None
+    if lang == 'S':
+        msg = HanziConv.toSimplified(msg)
+    elif lang == 'T':
+        msg = HanziConv.toTraditional(msg)
+
     msg = sub(msg)
     len_col = math.ceil(len(msg) / row)  # 向上取整
 
@@ -25,13 +31,20 @@ def print_in_line(row, msg, style):
     return line
 
 
-def print_in_line_reverse(row, msg, style):
+def print_in_line_reverse(row, msg, style, lang):
     '''
     string 语句，row行数，direction 方向。原理：字数/行数的余数。
     字数/行数， 余数。决定了文字打印出来的坐标。
     '''
     if not msg:
         return None
+    if not msg:
+        return None
+    if lang == 'S':
+        msg = HanziConv.toSimplified(msg)
+    elif lang == 'T':
+        msg = HanziConv.toTraditional(msg)
+
     msg = sub(msg)
     len_col = math.ceil(len(msg) / row)  # 向上取整
 

@@ -112,11 +112,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# 前端访问静态文件路径
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
 
+# 一个所有 app 通用的 static 路径（开发模式会从这里和 project/app/static 寻找）
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
+
+# 收集的静态文件路径, 部署时外部 Web 服务器会访问这里寻找静态文件（生产模式会从这里寻找）
 STATIC_ROOT = os.path.join(BASE_DIR, 'anti_censorship/static')
 
 # if os.getcwd() == '/app':

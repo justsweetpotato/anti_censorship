@@ -18,23 +18,6 @@
     color: gray;
 }
 
-.div_row {
-    display: inline-block;
-    margin-right: 3%;
-    margin-bottom: 1%;
-}
-
-.div_cut {
-    display: inline-block;
-    margin-right: 3%;
-    margin-bottom: 1%;
-}
-
-.div_sty {
-    display: inline-block;
-    
-}
-
 .s1 {
     color: lightcoral;
 }
@@ -83,12 +66,36 @@
         font-size: 16px;
     }
 
+    .div_row {
+        width: 25%;
+        display: inline-block;
+        margin-bottom: 2%;
+    }
+
+    .div_cut {
+        width: 25%;
+        display: inline-block;
+        margin-bottom: 1%;
+    }
+
+    .div_sty {
+        width: 25%;
+        display: inline-block;
+        margin-bottom: 1%;
+    }
+
+    .div_lang {
+        width: 25;
+        display: inline-block;
+        margin-bottom: 2%;
+    }
+
     .span_row {
         font-size: 16px;
     }
 
     .input_row {
-        width: 40px;
+        width: 50px;
         font-size: 16px;
     }
 
@@ -105,6 +112,14 @@
     }
 
     .span_sty_set {
+        font-size: 16px;
+    }
+
+    .span_lang {
+        font-size: 16px;
+    }
+
+    .span_lang_set {
         font-size: 16px;
     }
 
@@ -156,12 +171,36 @@
         font-size: 14px;
     }
 
+    .div_row {
+        width: 40%;
+        display: inline-block;
+        margin-bottom: 2%;
+    }
+
+    .div_cut {
+        width: 40%;
+        display: inline-block;
+        margin-bottom: 1%;
+    }
+
+    .div_sty {
+        width: 50%;
+        display: inline-block;
+        margin-bottom: 1%;
+    }
+
+    .div_lang {
+        width: 40%;
+        display: inline-block;
+        margin-bottom: 2%;
+    }
+
     .span_row {
         font-size: 14px;
     }
 
     .input_row {
-        width: 32px;
+        width: 40px;
         font-size: 14px;
     }
 
@@ -178,6 +217,14 @@
     }
 
     .span_sty_set {
+        font-size: 14px;
+    }
+
+    .span_lang {
+        font-size: 14px;
+    }
+
+    .span_lang_set {
         font-size: 14px;
     }
 

@@ -14,7 +14,7 @@
 <div class=div_all>
     <a class="a_title" href="/"><h2 class="h2_title">文本竖排</h2></a>
     &nbsp;<small class="small_title"><span class="s1">v</span><span class="s2">0</span><span class="s3">.</span><span
-        class="s4">0</span><span class="s5">.</span><span class="s6">7</span></small>
+        class="s4">0</span><span class="s5">.</span><span class="s6">8</span></small>
     <form action="" name="form" method="post">
         {% csrf_token %}
         <span class="span_text">文本:</span><br>
@@ -45,14 +45,29 @@
         {% endif %}
         <br>
         <br>
-        <div class=div_row>
-            <span class="span_row">行数:</span><br>
-            <input class="input_row" type="text" name="row" value="{{ row }}">
+        <div>
+            <div class=div_row>
+                <span class="span_row">行数:</span><br>
+                <input class="input_row" type="text" name="row" value="{{ row }}">
+            </div>
+            <div class="div_lang">
+                <span class="span_lang">简繁转换:</span><br>
+                <span class="span_lang_set">
+                {% if lang == 'S' %}
+                    <input type="radio" name="lang" value="S" checked>简
+                    <input type="radio" name="lang" value="T">繁
+                {% else %}
+                    <input type="radio" name="lang" value="S">简
+                    <input type="radio" name="lang" value="T" checked>繁
+                {% endif %}
+                </span>
+            </div>
         </div>
 
-        <div class="div_cut">
-            <span class="span_cut">分隔符:</span><br>
-            <span class="span_cut_set">
+        <div>
+            <div class="div_cut">
+                <span class="span_cut">分隔符:</span><br>
+                <span class="span_cut_set">
             {% if style == ' ' %}
                 <input type="radio" name="style" value=" " checked>空格
                 <input type="radio" name="style" value="|">竖线
@@ -60,23 +75,21 @@
                 <input type="radio" name="style" value=" ">空格
                 <input type="radio" name="style" value="|" checked>竖线
             {% endif %}
-            </span>
-        </div>
-
-
-        <div class="div_sty">
-            <span class="span_sty">样式:</span><br>
-            <span class="span_sty_set">
+                </span>
+            </div>
+            <div class="div_sty">
+                <span class="span_sty">样式:</span><br>
+                <span class="span_sty_set">
                 {% if reverse == '0' %}
-                    <input type="radio" name="reverse" value="0" checked>从左往右
-                    <input type="radio" name="reverse" value="1">从右往左
+                    <input type="radio" name="reverse" value="0" checked>左往右
+                    <input type="radio" name="reverse" value="1">右往左
                 {% else %}
-                    <input type="radio" name="reverse" value="0">从左往右
-                    <input type="radio" name="reverse" value="1" checked>从右往左
+                    <input type="radio" name="reverse" value="0">左往右
+                    <input type="radio" name="reverse" value="1" checked>右往左
                 {% endif %}
-            </span>
+                </span>
+            </div>
         </div>
-        <br>
         <br>
         <input class="input_sub" type="submit" name="" id="" value="提交">&nbsp;&nbsp;&nbsp;
         <button class="btn_reset" onclick="ClearTextArea()">重置</button>
