@@ -117,7 +117,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'anti_censorship/static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'anti_censorship/static')
 
 # if os.getcwd() == '/app':
 #     import dj_database_url
