@@ -1,6 +1,6 @@
 ## 文本竖排工具
 
-<a href="https://obelisk2019.herokuapp.com/">https://obelisk2019.herokuapp.com/</a>
+<a href="https://search.littlepotato.life/tools/obelisk/">https://search.littlepotato.life/tools/obelisk/</a>
 
 
 不知道这条微博又又又触发了什么 G 点而发不出去?
